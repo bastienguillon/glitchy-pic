@@ -1,0 +1,22 @@
+{
+  "name": "glitchy-pic",
+  "version": "0.0.0",
+  "description": "",
+  "main": "src/glitch.js",
+  "scripts": {
+    "start": "node ./src/glitch.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bastienguillon/glitchy-pic.git"
+  },
+  "author": "",
+  "license": "UNLICENSED",
+  "bugs": {
+    "url": "https://github.com/bastienguillon/glitchy-pic/issues"
+  },
+  "homepage": "https://github.com/bastienguillon/glitchy-pic#readme",
+  "dependencies": {
+    "node": "^19.3.0"
+  }
+}
