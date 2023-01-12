@@ -4,7 +4,7 @@
   "description": "",
   "main": "src/glitch.js",
   "scripts": {
-    "start": "node ./src/glitch.js"
+    "start": "node ./src/glitch.js ./assets/lenna.png"
   },
   "repository": {
     "type": "git",
@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/bastienguillon/glitchy-pic#readme",
   "dependencies": {
+    "fs": "^0.0.1-security",
     "node": "^19.3.0"
   }
 }
