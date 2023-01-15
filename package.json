@@ -4,7 +4,8 @@
   "description": "",
   "main": "src/glitch.js",
   "scripts": {
-    "start": "node ./src/glitch.js ./assets/lenna.png"
+    "start": "node ./src/glitch.js ./assets/lenna.png",
+    "clean": "rimraf outputs"
   },
   "repository": {
     "type": "git",
@@ -20,5 +21,8 @@
     "get-pixels": "^3.3.3",
     "node": "^19.3.0",
     "save-pixels": "^2.3.6"
+  },
+  "devDependencies": {
+    "rimraf": "^4.0.5"
   }
 }
