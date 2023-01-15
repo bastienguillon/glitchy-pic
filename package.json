@@ -4,7 +4,7 @@
   "description": "",
   "main": "src/glitch.js",
   "scripts": {
-    "start": "node ./src/glitch.js ./assets/lenna.png",
+    "start": "node ./src/glitch.js ./assets/girl_with_a_pearl_earring.jpg",
     "clean": "rimraf outputs"
   },
   "repository": {
