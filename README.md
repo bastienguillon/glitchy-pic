@@ -1,0 +1,1 @@
+Works with PNG, JPEG and GIF (see the [get-pixels](https://www.npmjs.com/package/get-pixels) lib doc).

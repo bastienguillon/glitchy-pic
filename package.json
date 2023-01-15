@@ -17,7 +17,8 @@
   },
   "homepage": "https://github.com/bastienguillon/glitchy-pic#readme",
   "dependencies": {
-    "fs": "^0.0.1-security",
-    "node": "^19.3.0"
+    "get-pixels": "^3.3.3",
+    "node": "^19.3.0",
+    "save-pixels": "^2.3.6"
   }
 }
