@@ -1,4 +1,5 @@
 const fs = require('fs');
+const crypto = require('crypto');
 const getPixels = require('get-pixels');
 const savePixels = require('save-pixels');
 
@@ -49,14 +50,43 @@ getPixels(
         // }
 
         // Translate lines randomly
-        // TODO: Math.random cannot be seeded, will have to use something else to generate random numbers
-        let translation = Math.floor(Math.random() * width / 8);
-        let nextTranslationSizeUpdate = Math.floor(Math.random() * (20 - 2 + 1) + 2)
+        let translation = crypto.randomInt(0, width / 16);
+        let nextTranslationSizeUpdate = crypto.randomInt(2, 20);
         for (let line = 0; line < height; line += 1) {
 
             if (line % nextTranslationSizeUpdate === 0) {
-                translation = Math.floor(Math.random() * width / 8);
-                nextTranslationSizeUpdate = Math.floor(Math.random() * (20 - 2 + 1) + 2)
+                translation = crypto.randomInt(0, width / 16);
+                nextTranslationSizeUpdate = crypto.randomInt(2, 20);
+            }
+
+            for (let t = 0; t < translation; ++t) {
+
+                const lineStart = line * width * 4;
+                const lineEnd = lineStart + 4 * width;
+
+                // TODO: do not rebuild the array just to use shift, it destroys perfs: implement shift on Uint8Array instead
+                const lineCopy = [...pixels.data.slice(lineStart, lineEnd)];
+                for (let p = 0; p < 4; ++p) {
+                    lineCopy.push(lineCopy.shift());
+                }
+
+                for (
+                    let i = lineStart;
+                    i < lineEnd;
+                    i += 4
+                ) {
+                    pixels.data[i] = lineCopy[i - lineStart];
+                }
+            }
+        }
+
+        translation = crypto.randomInt(0, width / 8);
+        nextTranslationSizeUpdate = crypto.randomInt(2, 50);
+        for (let line = 0; line < height; line += 1) {
+
+            if (line % nextTranslationSizeUpdate === 0) {
+                translation = crypto.randomInt(0, width / 8);
+                nextTranslationSizeUpdate = crypto.randomInt(2, 50);
             }
 
             for (let t = 0; t < translation; ++t) {
